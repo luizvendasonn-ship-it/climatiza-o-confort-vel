@@ -18,7 +18,7 @@ export function Servicos() {
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {SERVICOS.map((servico, i) => {
-            const Icon = ICONS[i];
+            const Icon = ICONS[i] ?? Cog;
             return (
               <article
                 key={servico.id}

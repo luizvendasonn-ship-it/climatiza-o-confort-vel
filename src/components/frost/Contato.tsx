@@ -5,7 +5,7 @@ import { waLink, PHONE_DISPLAY, EMAIL, AREA, SERVICOS } from "./data";
 export function Contato() {
   const [nome, setNome] = useState("");
   const [telefone, setTelefone] = useState("");
-  const [servico, setServico] = useState(SERVICOS[0].titulo);
+  const [servico, setServico] = useState(SERVICOS[0]?.titulo ?? "Instalação");
   const [mensagem, setMensagem] = useState("");
 
   function handleSubmit(e: React.FormEvent) {
