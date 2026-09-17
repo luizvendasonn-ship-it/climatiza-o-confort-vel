@@ -1,24 +1,48 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/frost/Header";
+import { Hero } from "@/components/frost/Hero";
+import { Servicos } from "@/components/frost/Servicos";
+import { Garantias } from "@/components/frost/Garantias";
+import { Equipamentos } from "@/components/frost/Equipamentos";
+import { Marcas } from "@/components/frost/Marcas";
+import { Sobre } from "@/components/frost/Sobre";
+import { Contato } from "@/components/frost/Contato";
+import { Footer } from "@/components/frost/Footer";
+import { WhatsAppFloat } from "@/components/frost/WhatsAppFloat";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "Frost Clima — Instalação e Manutenção de Ar-Condicionado em Brasília";
+const description =
+  "Instalação, manutenção e limpeza de ar-condicionado em Brasília. Técnicos certificados, 90 dias de garantia e orçamento rápido pelo WhatsApp.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="font-sans">
+      <Header />
+      <main>
+        <Hero />
+        <Servicos />
+        <Garantias />
+        <Equipamentos />
+        <Marcas />
+        <Sobre />
+        <Contato />
+      </main>
+      <Footer />
+      <WhatsAppFloat />
     </div>
   );
 }
